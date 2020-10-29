@@ -16,5 +16,6 @@ Y = oneHotEncode(df = Y, numCols = [], catCols = Y.columns)
 X = normalizeDataframe(X)
 
 #new dataset (X + Y): can't join datasets if they have same columns names (it can happen after encoding categoric attributes, for example)
+Y.columns = ["Iris-setosa","Iris-versicolor","Iris-virginica"]
 dataset = X.join(Y)
 dataset.to_csv("dataAndResults/iris/datasets/procIris.csv")

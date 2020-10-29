@@ -59,7 +59,7 @@ def oneHotEncode(df, numCols, catCols):
 		encoded = pd.get_dummies(toEncode)
 		newCols = []
 		for i in encoded.columns:
-			newCols += [str(i) + str(c) + str(c)]
+			newCols += [str(i) + str(c)]
 		encoded.columns = newCols
 		dataframe = dataframe.join(encoded)
 	return dataframe
@@ -75,7 +75,6 @@ def normalizeDataframe(df):
 	return normalized
 
 def getXandY(df, labelCols, attributesCols):
-	columns = df.shape[1]
 	Y = df.loc[:, labelCols]
 	X = df.loc[:, attributesCols]
 	return X, Y
